@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import { GrainOverlay } from "@/components/ui/grain-overlay";
+import { PerformanceMonitor } from "@/components/monitoring/PerformanceMonitor";
+import { StructuredData } from "@/components/seo/StructuredData";
+import { Suspense } from "react";
 import "./globals.css";
 
 // High-contrast typography - Inter for San Francisco-like appearance
@@ -86,24 +89,6 @@ export const metadata: Metadata = {
     apple: '/apple-icon.png',
   },
   manifest: '/site.webmanifest',
-  other: [
-    {
-      rel: 'icon',
-      url: '/favicon.ico',
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '16x16',
-      url: '/favicon-16x16.png',
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '32x32',
-      url: '/favicon-32x32.png',
-    },
-  ],
 };
 
 export default function RootLayout({
@@ -113,15 +98,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="smooth-scroll">
+      <head>
+        <StructuredData />
+      </head>
       <body
         className={`${inter.variable} ${GeistMono.variable} antialiased font-sans`}
       >
+        {/* Performance Monitoring */}
+        <PerformanceMonitor />
+        
         {/* Texture overlays for visual refinement */}
         <GrainOverlay />
         
         {/* Main Content */}
         <main className="relative z-10">
-          {children}
+          <Suspense fallback={<div className="min-h-screen bg-bg-page" />}>
+            {children}
+          </Suspense>
         </main>
       </body>
     </html>

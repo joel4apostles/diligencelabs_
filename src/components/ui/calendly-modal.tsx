@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { InlineWidget } from 'react-calendly'
 
 interface CalendlyModalProps {
@@ -17,6 +17,16 @@ export function CalendlyModal({
   meetingType, 
   title = "Schedule Your Consultation" 
 }: CalendlyModalProps) {
+  const [isLoading, setIsLoading] = useState(true)
+  
+  // Auto-hide loading after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 3000)
+    
+    return () => clearTimeout(timer)
+  }, [isOpen])
   
   // Close modal on escape key
   useEffect(() => {
@@ -85,12 +95,38 @@ export function CalendlyModal({
           </div>
 
           {/* Calendly Widget */}
-          <div className="h-[600px]">
+          <div className="h-[600px] relative">
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
+                <div className="text-center">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-600 mx-auto mb-3"></div>
+                  <p className="text-gray-600">Loading calendar...</p>
+                </div>
+              </div>
+            )}
+            
+            {false && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
+                <div className="text-center">
+                  <p className="text-red-600 mb-3">Unable to load calendar</p>
+                  <a 
+                    href={getCalendlyUrl()} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                  >
+                    Open in New Tab
+                  </a>
+                </div>
+              </div>
+            )}
+            
             <InlineWidget 
               url={getCalendlyUrl()}
               styles={{
                 height: '100%',
-                width: '100%'
+                width: '100%',
+                display: isLoading ? 'none' : 'block'
               }}
             />
           </div>

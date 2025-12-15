@@ -4,6 +4,7 @@ const nextConfig = {
     turbopack: {
       root: __dirname,
     },
+    optimizePackageImports: ['framer-motion', 'react-calendly'],
   },
   poweredByHeader: false,
   compress: true,
@@ -11,7 +12,11 @@ const nextConfig = {
   swcMinify: true,
   images: {
     formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 300,
+    deviceSizes: [640, 768, 1024, 1280, 1600],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    dangerouslyAllowSVG: false,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   headers: async () => [
     {
@@ -35,7 +40,15 @@ const nextConfig = {
         },
         {
           key: 'Content-Security-Policy',
-          value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' calendly.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' calendly.com *.calendly.com; frame-src calendly.com *.calendly.com;",
+          value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' calendly.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' calendly.com *.calendly.com vitals.vercel-insights.com; frame-src calendly.com *.calendly.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none';",
+        },
+        {
+          key: 'Strict-Transport-Security',
+          value: 'max-age=63072000; includeSubDomains; preload',
+        },
+        {
+          key: 'Permissions-Policy',
+          value: 'camera=(), microphone=(), location=(), payment=(), usb=(), interest-cohort=()',
         },
       ],
     },

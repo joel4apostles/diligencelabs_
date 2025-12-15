@@ -7,12 +7,12 @@ import { SocialLink, QuickLink } from '@/types'
 const SOCIAL_LINKS: readonly SocialLink[] = [
   {
     name: 'Twitter',
-    href: 'https://twitter.com/diligencelabs',
+    href: 'https://x.com/diligencelabs_',
     icon: <IconSystem name="twitter" category="social" className="w-5 h-5" />
   },
   {
     name: 'LinkedIn', 
-    href: 'https://linkedin.com/company/diligencelabs',
+    href: 'https://www.linkedin.com/company/diligence-labs/about/',
     icon: <IconSystem name="linkedin" category="social" className="w-5 h-5" />
   },
   {
