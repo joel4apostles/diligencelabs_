@@ -101,7 +101,7 @@ export function BookingSection() {
                   viewport={{ once: true }}
                   className={`relative vibrant-card glow-effect magnetic-element rounded-xl p-6 sm:p-8 md:p-10 backdrop-blur-sm transition-all duration-500 group cursor-pointer focus-ring ${
                     consultation.popular 
-                      ? 'border-green-400/60 shadow-lg shadow-green-400/15 hover:shadow-green-400/25 hover:border-green-400 ring-1 ring-green-400/20' 
+                      ? 'border-accent-primary/60 shadow-lg shadow-accent-primary/15 hover:shadow-accent-primary/25 hover:border-accent-primary ring-1 ring-accent-primary/20' 
                       : 'border-border-subtle hover:border-border-highlight hover:shadow-lg hover:shadow-text-primary/8'
                   }`}
                 >

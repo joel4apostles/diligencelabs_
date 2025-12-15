@@ -30,7 +30,7 @@ export function Navigation() {
       }}
       animate={isVisible ? "visible" : "hidden"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className="fixed top-0 left-0 right-0 z-50 vibrant-card backdrop-blur-md border-b border-green-400/20"
+      className="fixed top-0 left-0 right-0 z-50 vibrant-card backdrop-blur-md border-b border-accent-primary/20"
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
@@ -42,7 +42,7 @@ export function Navigation() {
             className="font-mono font-bold text-xl"
           >
             <span className="text-text-primary shimmer-text">DILIGENCE</span>
-            <span className="text-green-400">LABS</span>
+            <span className="text-accent-primary">LABS</span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -54,7 +54,7 @@ export function Navigation() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 onClick={() => handleNavigation(item.href)}
-                className="text-text-secondary hover:text-green-400 transition-colors duration-300 font-medium magnetic-element relative"
+                className="text-text-secondary hover:text-accent-primary transition-colors duration-300 font-medium magnetic-element relative"
               >
                 {item.name}
               </motion.button>

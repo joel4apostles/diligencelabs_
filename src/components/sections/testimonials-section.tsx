@@ -93,8 +93,8 @@ export function TestimonialsSection() {
         style={{ y }}
         className="absolute inset-0 opacity-5"
       >
-        <div className="absolute top-1/4 left-10 w-80 h-80 border border-purple-500 rotate-12" />
-        <div className="absolute bottom-1/4 right-10 w-48 h-48 bg-cyan-400 rounded-full" />
+        <div className="absolute top-1/4 left-10 w-80 h-80 border border-accent-primary rotate-12" />
+        <div className="absolute bottom-1/4 right-10 w-48 h-48 bg-accent-primary rounded-full" />
       </motion.div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -107,7 +107,7 @@ export function TestimonialsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-mono font-bold text-white mb-6">
-            SUCCESS <span className="text-purple-400">STORIES</span>
+            SUCCESS <span className="text-accent-primary">STORIES</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             Real results from real protocols. See how our strategic guidance has driven measurable success across the Web3 ecosystem.
@@ -264,7 +264,7 @@ export function TestimonialsSection() {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-purple-500 to-cyan-400 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-600 hover:to-cyan-500 transition-all duration-300"
+            className="bg-accent-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accent-primary/90 transition-all duration-300"
           >
             Discuss Your Project
           </motion.button>

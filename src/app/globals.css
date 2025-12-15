@@ -69,25 +69,16 @@
     --glass-shadow: rgba(0, 0, 0, 0.1);
   }
 
-  /* Shared accent colors for both themes */
+  /* Simplified single accent color system */
   :root,
   .dark,
   .light {
-    /* Sophisticated Accent Palette */
-    --accent-primary: 160 84% 39%; /* Professional teal - Primary actions */
-    --accent-secondary: 199 89% 48%; /* Trustworthy blue - Secondary actions */
-    --accent-success: 142 76% 36%; /* Success green */
-    --accent-warning: 43 96% 56%;  /* Warning amber */
-    --accent-error: 0 84% 60%;     /* Error red */
-    
-    /* Premium Gradients */
-    --gradient-primary: linear-gradient(135deg, 
-        hsl(160, 84%, 39%) 0%, 
-        hsl(199, 89%, 48%) 100%);
-    --gradient-accent: linear-gradient(135deg, 
-        hsl(160, 84%, 39%) 0%, 
-        hsl(199, 89%, 48%) 50%, 
-        hsl(160, 84%, 39%) 100%);
+    /* Professional Teal Accent - Single Color System */
+    --accent-primary: 160 84% 39%; /* Professional teal - Only accent color */
+    --accent-secondary: 160 84% 39%; /* Same as primary for consistency */
+    --accent-success: 160 84% 39%; /* Use teal for success states */
+    --accent-warning: 43 96% 56%;  /* Keep warning amber for safety */
+    --accent-error: 0 84% 60%;     /* Keep error red for safety */
   }
 
   /* Smooth theme transitions */
@@ -271,34 +262,19 @@
   }
 }
 
-/* Enhanced button interactions with human touch */
+/* Simplified button interactions */
 .btn-primary {
-  @apply transition-all duration-300 relative overflow-hidden;
+  @apply transition-all duration-300 relative;
   transform: translateY(0) scale(1);
   transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-  background: linear-gradient(135deg, hsl(var(--text-secondary)), hsl(var(--text-muted)));
-  position: relative;
-}
-
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.5s;
+  background: hsl(var(--accent-primary));
+  color: white;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(163, 163, 163, 0.15);
-  background: linear-gradient(135deg, hsl(var(--text-primary)), hsl(var(--text-secondary)));
-}
-
-.btn-primary:hover::before {
-  left: 100%;
+  box-shadow: 0 8px 25px hsl(var(--accent-primary) / 0.25);
+  background: hsl(var(--accent-primary) / 0.9);
 }
 
 .btn-primary:active {
@@ -347,19 +323,9 @@
   opacity: 1;
 }
 
-/* Text gradient animation */
-.text-gradient {
-  background: linear-gradient(45deg, hsl(var(--text-primary)), hsl(var(--text-secondary)));
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 3s ease-in-out infinite;
-}
-
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+/* Simplified text accent */
+.text-accent {
+  color: hsl(var(--accent-primary));
 }
 
 /* Loading states */
@@ -386,11 +352,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(
-    to right,
-    hsl(var(--text-secondary)),
-    hsl(var(--text-primary))
-  );
+  background: hsl(var(--accent-primary));
   transform-origin: 0%;
   z-index: 9999;
 }
@@ -594,10 +556,7 @@
 .heading-hero {
   @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-mono font-black leading-[0.88] tracking-[-0.025em];
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  background: var(--gradient-accent);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: hsl(var(--text-primary));
   position: relative;
 }
 
@@ -609,7 +568,7 @@
   transform: translateX(-50%);
   width: 60%;
   height: 2px;
-  background: var(--gradient-primary);
+  background: hsl(var(--accent-primary));
   opacity: 0.6;
   border-radius: 1px;
 }
@@ -622,10 +581,7 @@
 }
 
 .heading-section .accent {
-  background: var(--gradient-primary);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: hsl(var(--accent-primary));
 }
 
 .heading-card {
@@ -660,13 +616,9 @@
 }
 
 .professional-text-accent {
-  background: var(--gradient-accent);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: hsl(var(--accent-primary));
   position: relative;
   display: inline-block;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .professional-text-accent::after {
@@ -676,11 +628,11 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: var(--gradient-primary);
+  background: hsl(var(--accent-primary));
   opacity: 0.8;
   transform: scaleX(0);
   transform-origin: center;
-  transition: transform var(--duration-normal) var(--ease-out-cubic);
+  transition: transform var(--duration-normal) ease;
 }
 
 .professional-text-accent:hover::after {
@@ -689,92 +641,55 @@
 
 /* Professional Button System */
 .btn-primary-solid {
-  @apply font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 focus-ring relative overflow-hidden;
-  background: var(--gradient-primary);
+  @apply font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 focus-ring;
+  background: hsl(var(--accent-primary));
   color: white;
   border: 1px solid hsl(var(--accent-primary));
-  position: relative;
-  z-index: 1;
-  backdrop-filter: blur(10px);
   font-feature-settings: "kern" 1;
   letter-spacing: 0.025em;
 }
 
-.btn-primary-solid::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: var(--gradient-secondary);
-  transition: left var(--duration-slow) var(--ease-in-out-cubic);
-  z-index: -1;
-}
-
 .btn-primary-solid:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: var(--shadow-xl), 0 0 30px hsla(var(--accent-primary), 0.4);
-}
-
-.btn-primary-solid:hover::before {
-  left: 0;
+  background: hsl(var(--accent-primary) / 0.9);
+  box-shadow: 0 20px 40px hsl(var(--accent-primary) / 0.25);
 }
 
 .btn-primary-solid:active {
   transform: translateY(0) scale(1);
-  transition-duration: var(--duration-fast);
+  transition-duration: 150ms;
 }
 
 .btn-primary-outline {
-  @apply border-2 font-semibold py-4 px-8 rounded-xl transition-all duration-300 focus-ring relative overflow-hidden;
+  @apply border-2 font-semibold py-4 px-8 rounded-xl transition-all duration-300 focus-ring;
   border: 2px solid hsl(var(--accent-primary));
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
+  background: transparent;
   color: hsl(var(--accent-primary));
   font-feature-settings: "kern" 1;
   letter-spacing: 0.025em;
 }
 
-.btn-primary-outline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--gradient-primary);
-  opacity: 0;
-  transition: opacity var(--duration-normal) var(--ease-out-cubic);
-  z-index: -1;
-}
-
 .btn-primary-outline:hover {
   transform: translateY(-2px);
+  background: hsl(var(--accent-primary));
   color: white;
-  border-color: hsl(var(--accent-secondary));
-  box-shadow: var(--shadow-lg), 0 0 25px hsla(var(--accent-primary), 0.3);
-}
-
-.btn-primary-outline:hover::before {
-  opacity: 1;
+  box-shadow: 0 12px 30px hsl(var(--accent-primary) / 0.25);
 }
 
 .btn-ghost {
-  @apply font-semibold py-3 px-6 rounded-lg transition-all duration-300 focus-ring relative;
-  background: var(--glass-bg);
-  backdrop-filter: blur(8px);
+  @apply font-semibold py-3 px-6 rounded-lg transition-all duration-300 focus-ring;
+  background: hsl(var(--bg-surface));
   color: hsl(var(--text-secondary));
-  border: 1px solid var(--glass-border);
+  border: 1px solid hsl(var(--border-subtle));
   font-feature-settings: "kern" 1;
 }
 
 .btn-ghost:hover {
-  background: var(--gradient-primary);
+  background: hsl(var(--accent-primary));
   color: white;
   transform: translateY(-1px);
   border-color: hsl(var(--accent-primary));
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 6px 20px hsl(var(--accent-primary) / 0.2);
 }
 
 /* Professional Interactive Cards */
