@@ -1,0 +1,59 @@
+{
+  "name": "Diligence Labs - Strategic Blockchain Advisory",
+  "short_name": "Diligence Labs",
+  "description": "Expert strategic advisory for blockchain projects. Technical consultation, tokenomics design, and implementation guidance.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#22c55e",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["business", "finance", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Book Consultation",
+      "short_name": "Book",
+      "description": "Schedule a strategic advisory consultation",
+      "url": "/#booking",
+      "icons": [
+        {
+          "src": "/icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Our Services",
+      "short_name": "Services",
+      "description": "View our advisory services",
+      "url": "/#services",
+      "icons": [
+        {
+          "src": "/icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}
