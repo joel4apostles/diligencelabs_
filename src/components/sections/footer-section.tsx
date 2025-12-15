@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { IconSystem } from '@/components/icons/IconSystem'
+import { NewsletterSubscription } from '@/components/forms/NewsletterSubscription'
 import { SocialLink, QuickLink } from '@/types'
 
 const SOCIAL_LINKS: readonly SocialLink[] = [
@@ -106,20 +107,7 @@ export function FooterSection() {
             <p className="text-neutral-400 text-xs sm:text-sm">
               Protocol development insights and infrastructure analysis.
             </p>
-            <div className="space-y-3">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-text-primary placeholder-neutral-400 focus:border-border-highlight focus:outline-none transition-colors duration-300 text-sm sm:text-base"
-              />
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-text-secondary hover:bg-text-primary text-bg-page font-semibold py-2.5 sm:py-3 rounded-lg transition-all duration-300 hover:scale-105 btn-primary text-sm sm:text-base"
-              >
-                Subscribe
-              </motion.button>
-            </div>
+            <NewsletterSubscription />
           </motion.div>
         </div>
 
