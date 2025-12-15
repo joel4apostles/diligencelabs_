@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { useScrollVisibility } from '@/hooks'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { NavigationItem } from '@/types'
 
 const NAV_ITEMS: readonly NavigationItem[] = [
@@ -58,6 +59,11 @@ export function Navigation() {
                 {item.name}
               </motion.button>
             ))}
+          </div>
+
+          {/* Theme Toggle */}
+          <div className="hidden md:block">
+            <ThemeToggle size="md" className="mr-4" />
           </div>
 
           {/* CTA Button */}
@@ -127,6 +133,11 @@ export function Navigation() {
             >
               Schedule Triage
             </button>
+            
+            {/* Mobile Theme Toggle */}
+            <div className="pt-4 border-t border-border-subtle mt-4">
+              <ThemeToggle size="md" showLabel className="w-full" />
+            </div>
           </div>
         </motion.div>
       </div>

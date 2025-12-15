@@ -4,6 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import { GrainOverlay } from "@/components/ui/grain-overlay";
 import { PerformanceMonitor } from "@/components/monitoring/PerformanceMonitor";
 import { StructuredData } from "@/components/seo/StructuredData";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import { Suspense } from "react";
 import "./globals.css";
 
@@ -104,18 +105,20 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${GeistMono.variable} antialiased font-sans`}
       >
-        {/* Performance Monitoring */}
-        <PerformanceMonitor />
-        
-        {/* Texture overlays for visual refinement */}
-        <GrainOverlay />
-        
-        {/* Main Content */}
-        <main className="relative z-10">
-          <Suspense fallback={<div className="min-h-screen bg-bg-page" />}>
-            {children}
-          </Suspense>
-        </main>
+        <ThemeProvider defaultTheme="dark">
+          {/* Performance Monitoring */}
+          <PerformanceMonitor />
+          
+          {/* Texture overlays for visual refinement */}
+          <GrainOverlay />
+          
+          {/* Main Content */}
+          <main className="relative z-10">
+            <Suspense fallback={<div className="min-h-screen bg-bg-page" />}>
+              {children}
+            </Suspense>
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
