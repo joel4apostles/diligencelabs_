@@ -1,6 +1,7 @@
 {
-    "name": "Diligence Labs",
+    "name": "Diligence Labs - Blockchain Advisory",
     "short_name": "DiligenceLabs",
+    "description": "Strategic blockchain advisory and consultation services",
     "icons": [
         {
             "src": "/favicon-16x16.png",
@@ -23,7 +24,10 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#22c55e",
-    "background_color": "#000000",
-    "display": "standalone"
+    "theme_color": "#22d3aa",
+    "background_color": "#1a2332",
+    "display": "standalone",
+    "start_url": "/",
+    "scope": "/",
+    "orientation": "portrait-primary"
 }

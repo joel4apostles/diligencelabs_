@@ -9,43 +9,56 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Semantic Monochromatic Design System - NO MAGIC HEX CODES
-        'bg-page': '#000000',        // Pure Black (#000000) - Main canvas
-        'bg-card': '#0a0a0a',        // Very Dark Grey (#050505 / neutral-950) - Service cards
-        'border-subtle': '#171717',   // Dark Grey (neutral-900) - Card borders  
-        'border-highlight': '#404040', // Mid Grey (neutral-700) - Hover states
-        'text-primary': '#ffffff',   // White (#FFFFFF) - Headings
-        'text-secondary': '#a3a3a3', // Light Grey (neutral-400) - Body text
-        'text-muted': '#525252',     // Dark Grey (neutral-600) - Footer/Meta
+        // Dynamic Theme System - Uses CSS Variables for Light/Dark Switching
+        'bg-page': 'hsl(var(--bg-page))',
+        'bg-card': 'hsl(var(--bg-card))',
+        'bg-surface': 'hsl(var(--bg-surface))',
+        'bg-elevated': 'hsl(var(--bg-elevated))',
         
-        // State colors (error/success only - minimal use)
+        'border-subtle': 'hsl(var(--border-subtle))',
+        'border-highlight': 'hsl(var(--border-highlight))',
+        'border-accent': 'hsl(var(--border-accent))',
+        
+        'text-primary': 'hsl(var(--text-primary))',
+        'text-secondary': 'hsl(var(--text-secondary))',
+        'text-muted': 'hsl(var(--text-muted))',
+        'text-inverse': 'hsl(var(--text-inverse))',
+        
+        // Accent colors
+        'accent-primary': 'hsl(var(--accent-primary))',
+        'accent-secondary': 'hsl(var(--accent-secondary))',
+        'accent-success': 'hsl(var(--accent-success))',
+        'accent-warning': 'hsl(var(--accent-warning))',
+        'accent-error': 'hsl(var(--accent-error))',
+        
+        // State colors (using accent colors)
         destructive: {
-          DEFAULT: '#dc2626',        // Red-600 for errors
-          foreground: '#ffffff',
+          DEFAULT: 'hsl(var(--accent-error))',
+          foreground: 'hsl(var(--text-inverse))',
         },
         success: {
-          DEFAULT: '#16a34a',        // Green-600 for success
-          foreground: '#ffffff',
+          DEFAULT: 'hsl(var(--accent-success))',
+          foreground: 'hsl(var(--text-inverse))',
         },
         
-        // Legacy shadcn/ui support (mapped to semantic colors)
-        background: 'var(--bg-page)',
-        foreground: 'var(--text-primary)',
-        card: 'var(--bg-card)',
-        'card-foreground': 'var(--text-primary)',
-        popover: 'var(--bg-card)',
-        'popover-foreground': 'var(--text-primary)',
-        primary: 'var(--text-primary)',
-        'primary-foreground': 'var(--bg-page)',
-        secondary: 'var(--text-secondary)',
-        'secondary-foreground': 'var(--bg-page)',
-        muted: 'var(--text-muted)',
-        'muted-foreground': 'var(--text-secondary)',
-        accent: 'var(--text-secondary)',
-        'accent-foreground': 'var(--bg-page)',
-        border: 'var(--border-subtle)',
-        input: 'var(--bg-card)',
-        ring: 'var(--border-highlight)',
+        // Legacy shadcn/ui support (mapped to theme variables)
+        background: 'hsl(var(--bg-page))',
+        foreground: 'hsl(var(--text-primary))',
+        card: 'hsl(var(--bg-card))',
+        'card-foreground': 'hsl(var(--text-primary))',
+        popover: 'hsl(var(--bg-elevated))',
+        'popover-foreground': 'hsl(var(--text-primary))',
+        primary: 'hsl(var(--accent-primary))',
+        'primary-foreground': 'hsl(var(--text-inverse))',
+        secondary: 'hsl(var(--bg-surface))',
+        'secondary-foreground': 'hsl(var(--text-primary))',
+        muted: 'hsl(var(--bg-surface))',
+        'muted-foreground': 'hsl(var(--text-muted))',
+        accent: 'hsl(var(--accent-primary))',
+        'accent-foreground': 'hsl(var(--text-inverse))',
+        border: 'hsl(var(--border-subtle))',
+        input: 'hsl(var(--bg-surface))',
+        ring: 'hsl(var(--accent-primary))',
       },
       fontFamily: {
         mono: ['var(--font-geist-mono)', 'JetBrains Mono', 'monospace'],
