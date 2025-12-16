@@ -73,15 +73,19 @@ export function HeroWithNavRefactored() {
               {NAV_ITEMS.map((item, index) => (
                 <motion.button
                   key={item.name}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  initial={{ opacity: 0, y: -10, scale: 1 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ 
+                    duration: 0.4, 
+                    delay: index * 0.1, 
+                    type: "spring", 
+                    stiffness: 400, 
+                    damping: 10 
+                  }}
                   onClick={() => handleNavigation(item.href)}
                   className="relative group dark:text-gray-300 text-gray-700 hover:text-emerald-500 dark:hover:text-emerald-400 font-medium transition-colors duration-300 py-2 px-3 rounded-lg"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  initial={{ scale: 1 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   {item.name}
                   <motion.div
