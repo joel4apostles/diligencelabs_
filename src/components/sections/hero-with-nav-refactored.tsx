@@ -51,8 +51,8 @@ export function HeroWithNavRefactored() {
           WebkitBackdropFilter: 'blur(16px) saturate(180%)',
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 lg:px-6">
-          <div className="flex justify-between items-center py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-3 sm:py-4">
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -61,7 +61,7 @@ export function HeroWithNavRefactored() {
               className="relative group cursor-pointer"
               onClick={() => handleNavigation('#')}
             >
-              <div className="font-bold text-xl tracking-tight" style={{ fontFamily: 'Space Grotesk, Inter, system-ui, sans-serif' }}>
+              <div className="font-bold text-lg sm:text-xl tracking-tight" style={{ fontFamily: 'Space Grotesk, Inter, system-ui, sans-serif' }}>
                 <span className="dark:text-white text-gray-900">DILIGENCE</span>
                 <span className="text-emerald-500 dark:text-emerald-400 ml-1">LABS</span>
               </div>
@@ -78,8 +78,10 @@ export function HeroWithNavRefactored() {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   onClick={() => handleNavigation(item.href)}
                   className="relative group dark:text-gray-300 text-gray-700 hover:text-emerald-500 dark:hover:text-emerald-400 font-medium transition-colors duration-300 py-2 px-3 rounded-lg"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  initial={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   {item.name}
                   <motion.div
@@ -114,7 +116,7 @@ export function HeroWithNavRefactored() {
                   boxShadow: '0 10px 40px rgba(16, 185, 129, 0.3)'
                 }}
                 whileTap={{ scale: 0.98 }}
-                className="group relative bg-emerald-500 hover:bg-emerald-400 text-white px-6 py-3 rounded-xl font-bold shadow-lg transition-all duration-300 flex items-center space-x-2 overflow-hidden"
+                className="group relative bg-emerald-500 hover:bg-emerald-400 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold shadow-lg transition-all duration-300 flex items-center space-x-2 overflow-hidden text-sm sm:text-base"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Schedule Triage</span>
@@ -134,9 +136,10 @@ export function HeroWithNavRefactored() {
             {/* Mobile Menu Button */}
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden relative dark:text-white text-gray-900 p-2 hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-colors duration-200"
-              whileHover={{ scale: 1.05 }}
+              className="lg:hidden relative dark:text-white text-gray-900 p-2 hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-colors duration-200 min-h-[44px] min-w-[44px] flex items-center justify-center"
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <motion.div
                 animate={{ rotate: isMenuOpen ? 90 : 0 }}
@@ -170,7 +173,7 @@ export function HeroWithNavRefactored() {
                   animate={{ opacity: isMenuOpen ? 1 : 0, x: isMenuOpen ? 0 : -20 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   onClick={() => handleNavigation(item.href)}
-                  className="block w-full text-left dark:text-gray-300 text-gray-700 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors duration-300 py-3 px-6 rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
+                  className="block w-full text-left dark:text-gray-300 text-gray-700 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors duration-300 py-4 px-6 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 min-h-[48px] font-medium text-base"
                 >
                   {item.name}
                 </motion.button>
@@ -181,7 +184,7 @@ export function HeroWithNavRefactored() {
                 animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen ? 0 : 20 }}
                 transition={{ duration: 0.4, delay: 0.3 }}
                 onClick={() => handleNavigation('#booking')}
-                className="w-full bg-emerald-500 hover:bg-emerald-400 text-white py-3 px-6 rounded-xl font-bold transition-all duration-300 flex items-center justify-center space-x-2 mx-6"
+                className="w-full bg-emerald-500 hover:bg-emerald-400 text-white py-4 px-6 rounded-xl font-bold transition-all duration-300 flex items-center justify-center space-x-2 mx-6 min-h-[52px] text-base"
                 style={{ width: 'calc(100% - 3rem)' }}
               >
                 <Calendar className="w-4 h-4" />
@@ -219,14 +222,14 @@ export function HeroWithNavRefactored() {
             y: heroY,
             opacity: heroOpacity
           }}
-          className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 pt-48 pb-20"
+          className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 lg:pt-48 pb-16 sm:pb-20"
         >
           <div className="max-w-7xl mx-auto px-4 w-full">
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 1.11, 0.81, 0.99] }}
-              className="text-center space-y-16"
+              className="text-center space-y-8 sm:space-y-12 lg:space-y-16"
             >
               {/* Enhanced Typography with Space Grotesk */}
               <div className="space-y-8 px-4">
@@ -234,7 +237,7 @@ export function HeroWithNavRefactored() {
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold dark:text-white text-black leading-[0.9] tracking-tight overflow-visible"
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-extrabold dark:text-white text-black leading-[0.9] sm:leading-[0.85] tracking-tight overflow-visible"
                   style={{ 
                     fontFamily: 'Space Grotesk, Inter, system-ui, sans-serif', 
                     fontWeight: 800,
@@ -251,18 +254,18 @@ export function HeroWithNavRefactored() {
                   </motion.span>
                   
                   <motion.span 
-                    className="block mt-4 lg:mt-6"
+                    className="block mt-3 sm:mt-4 lg:mt-6"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                   >
                     <span className="text-emerald-800 dark:text-emerald-400" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>BUILD</span>
-                    <span className="mx-4 sm:mx-6 text-gray-900 dark:text-slate-500 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>&</span>
+                    <span className="mx-2 sm:mx-4 lg:mx-6 text-gray-900 dark:text-slate-500 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>&</span>
                     <span className="text-emerald-800 dark:text-emerald-400" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>SHIP</span>
                   </motion.span>
                   
                   <motion.span 
-                    className="block mt-4 lg:mt-6"
+                    className="block mt-3 sm:mt-4 lg:mt-6"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 1.0 }}
@@ -279,7 +282,7 @@ export function HeroWithNavRefactored() {
                 transition={{ duration: 0.8, delay: 1.2 }}
                 className="space-y-4"
               >
-                <p className="text-lg sm:text-xl md:text-2xl dark:text-gray-400 text-gray-800 max-w-4xl mx-auto leading-relaxed font-medium">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl dark:text-gray-400 text-gray-800 max-w-3xl sm:max-w-4xl mx-auto leading-relaxed font-medium px-2 sm:px-4">
                   Strategic advisory and technical guidance for teams building the next generation of blockchain solutions
                 </p>
               </motion.div>
@@ -289,7 +292,7 @@ export function HeroWithNavRefactored() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.4 }}
-                className="flex flex-col items-center space-y-6"
+                className="flex flex-col items-center space-y-4 sm:space-y-6 px-2 sm:px-4"
               >
                 {/* Primary CTA with Enhanced Effects */}
                 <motion.button
@@ -299,9 +302,9 @@ export function HeroWithNavRefactored() {
                     boxShadow: '0 20px 60px rgba(16, 185, 129, 0.4)'
                   }}
                   whileTap={{ scale: 0.98 }}
-                  className="group relative bg-emerald-500 hover:bg-emerald-400 text-white px-10 py-5 rounded-xl font-bold text-xl shadow-2xl transition-all duration-300 flex items-center space-x-3 overflow-hidden"
+                  className="group relative bg-emerald-500 hover:bg-emerald-400 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl font-bold text-lg sm:text-xl shadow-2xl transition-all duration-300 flex items-center space-x-2 sm:space-x-3 overflow-hidden min-h-[48px] sm:min-h-[56px]"
                 >
-                  <Calendar className="w-6 h-6" />
+                  <Calendar className="w-5 h-5 sm:w-6 sm:h-6" />
                   <span>Schedule Triage</span>
                   
                   {/* Animated background overlay */}
@@ -321,10 +324,10 @@ export function HeroWithNavRefactored() {
                 <motion.button
                   onClick={() => handleNavigation('#services')}
                   whileHover={{ x: 8, scale: 1.02 }}
-                  className="group dark:text-gray-400 text-gray-800 hover:text-emerald-700 dark:hover:text-emerald-400 font-semibold text-lg flex items-center space-x-3 transition-all duration-300 py-2 px-4 rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
+                  className="group dark:text-gray-400 text-gray-800 hover:text-emerald-700 dark:hover:text-emerald-400 font-semibold text-base sm:text-lg flex items-center space-x-2 sm:space-x-3 transition-all duration-300 py-3 px-4 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 min-h-[44px]"
                 >
                   <span>Explore Services</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
                 </motion.button>
               </motion.div>
 
