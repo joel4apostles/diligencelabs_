@@ -1,10 +1,10 @@
 'use client'
 
 import { SmoothScrollProvider } from '@/components/providers/smooth-scroll-provider'
-import { HeroWithNavRefactored } from '@/components/sections/hero-with-nav-refactored'
-import { EcosystemTicker } from '@/components/sections/ecosystem-ticker'
+import { HeroPremium } from '@/components/sections/hero-premium'
+import { TechTicker } from '@/components/sections/tech-ticker'
 import { AboutSection } from '@/components/sections/about-section'
-import { ServicesGrid } from '@/components/sections/services-grid'
+import { ServicesGridPremium } from '@/components/sections/services-grid-premium'
 import { ProcessTimeline } from '@/components/sections/process-timeline-refactored'
 import { TriageBooking } from '@/components/sections/triage-booking'
 import { FooterSection } from '@/components/sections/footer-section'
@@ -23,19 +23,19 @@ export default function HomePage() {
         <div className="vignette-overlay" />
         
         <div className="relative z-10 text-text-primary">
-          <HeroWithNavRefactored />
+          <HeroPremium />
           
-          <EcosystemTicker />
+          <TechTicker />
           
           <section id="services">
-            <ServicesGrid />
+            <ServicesGridPremium />
           </section>
           
           <section id="about">
             <AboutSection />
           </section>
           
-          <section id="how-it-works">
+          <section id="process">
             <ProcessTimeline />
           </section>
           
