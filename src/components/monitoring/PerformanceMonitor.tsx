@@ -31,7 +31,6 @@ export function PerformanceMonitor() {
     const reportWebVitals = (metric: WebVital) => {
       // In production, send to analytics service
       if (process.env.NODE_ENV === 'production') {
-        console.log('Web Vital:', metric)
         // Example: Analytics.track('web_vital', metric)
       }
     }

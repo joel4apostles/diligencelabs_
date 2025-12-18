@@ -31,7 +31,7 @@ const SOCIAL_LINKS: readonly SocialLink[] = [
 const QUICK_LINKS: readonly QuickLink[] = [
   { name: 'Services', href: '#services' },
   { name: 'About', href: '#about' },
-  { name: 'Engagement', href: '#how-it-works' },
+  { name: 'Process', href: '#process' },
   { name: 'Schedule Triage', href: '#booking' }
 ] as const
 

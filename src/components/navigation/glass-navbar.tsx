@@ -44,8 +44,10 @@ export function GlassNavbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.21, 1.11, 0.81, 0.99] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'backdrop-blur-md bg-slate-950/80' : 'backdrop-blur-sm bg-slate-950/60'
-      } border-b border-white/5`}
+        scrolled 
+          ? 'backdrop-blur-md bg-white/80 dark:bg-slate-950/80' 
+          : 'backdrop-blur-sm bg-white/60 dark:bg-slate-950/60'
+      } border-b border-gray-200/20 dark:border-white/5`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
@@ -58,7 +60,7 @@ export function GlassNavbar() {
               <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-950 rounded" />
             </div>
             <span 
-              className="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-tight"
+              className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 dark:text-white tracking-tight"
               style={{ fontFamily: 'Space Grotesk, system-ui, sans-serif' }}
             >
               DILIGENCE LABS
@@ -75,7 +77,7 @@ export function GlassNavbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -2 }}
-                className="text-gray-400 hover:text-white transition-colors duration-300 font-medium"
+                className="text-gray-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium"
               >
                 {item.label}
               </motion.button>
@@ -109,7 +111,7 @@ export function GlassNavbar() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-3 text-gray-400 hover:text-white transition-colors touch-target-44"
+            className="md:hidden p-3 text-gray-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors touch-target-44"
           >
             {isOpen ? (
               <X className="w-6 h-6" />
@@ -128,7 +130,7 @@ export function GlassNavbar() {
           opacity: isOpen ? 1 : 0
         }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className="md:hidden overflow-hidden bg-slate-900/95 backdrop-blur-md border-t border-white/5"
+        className="md:hidden overflow-hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-gray-200/20 dark:border-white/5"
       >
         <div className="px-4 py-6 space-y-4">
           {NAVIGATION_ITEMS.map((item, index) => (
@@ -147,7 +149,7 @@ export function GlassNavbar() {
                 duration: 0.3, 
                 delay: isOpen ? index * 0.1 : 0 
               }}
-              className="block text-gray-400 hover:text-white transition-colors duration-300 font-medium py-2 text-left"
+              className="block text-gray-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium py-2 text-left"
             >
               {item.label}
             </motion.button>
@@ -166,7 +168,7 @@ export function GlassNavbar() {
             }}
             className="flex items-center justify-between py-2"
           >
-            <span className="text-gray-400 font-medium">Theme</span>
+            <span className="text-gray-600 dark:text-gray-400 font-medium">Theme</span>
             <ThemeToggle size="sm" />
           </motion.div>
           

@@ -99,7 +99,6 @@ export function NewsletterSubscription({ className = '' }: NewsletterSubscriptio
       }
     } catch (error) {
       // Fallback: Store locally and show success (for demo purposes)
-      console.log('Newsletter subscription (demo):', { email, timestamp: new Date() })
       return { 
         success: true, 
         message: 'Thank you for your interest! We\'ll be in touch with technical updates.' 
@@ -177,14 +176,14 @@ export function NewsletterSubscription({ className = '' }: NewsletterSubscriptio
                 className="absolute right-3 top-1/2 transform -translate-y-1/2"
               >
                 {validateEmail(email) ? (
-                  <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center">
-                    <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-5 h-5 rounded-full bg-emerald-500 dark:bg-emerald-400 flex items-center justify-center">
+                    <svg className="w-3 h-3 text-white dark:text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
                 ) : (
-                  <div className="w-5 h-5 rounded-full bg-red-500 flex items-center justify-center">
-                    <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-5 h-5 rounded-full bg-red-500 dark:bg-red-400 flex items-center justify-center">
+                    <svg className="w-3 h-3 text-white dark:text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </div>
@@ -199,19 +198,19 @@ export function NewsletterSubscription({ className = '' }: NewsletterSubscriptio
           disabled={status === 'loading'}
           whileHover={status !== 'loading' ? { scale: 1.02 } : {}}
           whileTap={status !== 'loading' ? { scale: 0.98 } : {}}
-          className={`w-full font-semibold py-2.5 sm:py-3 rounded-lg transition-all duration-300 text-sm sm:text-base ${
+          className={`w-full font-semibold py-2.5 sm:py-3 rounded-lg transition-all duration-300 text-sm sm:text-base min-h-[44px] ${
             status === 'loading'
-              ? 'bg-gray-400 text-gray-600 cursor-not-allowed'
+              ? 'bg-slate-400 dark:bg-slate-600 text-slate-600 dark:text-slate-400 cursor-not-allowed'
               : status === 'success'
-              ? 'bg-green-500 hover:bg-green-600 text-white'
+              ? 'bg-emerald-500 hover:bg-emerald-600 dark:bg-emerald-400 dark:hover:bg-emerald-300 text-white dark:text-slate-900'
               : status === 'error'
-              ? 'bg-red-500 hover:bg-red-600 text-white'
-              : 'bg-text-secondary hover:bg-text-primary text-bg-page hover:scale-105'
+              ? 'bg-red-500 hover:bg-red-600 dark:bg-red-400 dark:hover:bg-red-300 text-white dark:text-slate-900'
+              : 'bg-slate-900 hover:bg-slate-800 dark:bg-slate-200 dark:hover:bg-white text-white dark:text-slate-900 hover:scale-105'
           }`}
         >
           {status === 'loading' ? (
             <div className="flex items-center justify-center space-x-2">
-              <div className="w-4 h-4 border-2 border-gray-600 border-t-transparent rounded-full animate-spin"></div>
+              <div className="w-4 h-4 border-2 border-slate-600 dark:border-slate-400 border-t-transparent rounded-full animate-spin"></div>
               <span>Subscribing...</span>
             </div>
           ) : status === 'success' ? (

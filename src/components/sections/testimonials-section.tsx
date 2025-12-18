@@ -128,10 +128,10 @@ export function TestimonialsSection() {
               </button>
               <button
                 onClick={() => setActiveTab('case-studies')}
-                className={`px-6 py-3 rounded-md font-medium transition-all duration-300 ${
+                className={`px-6 py-3 rounded-md font-medium transition-all duration-300 min-h-[44px] ${
                   activeTab === 'case-studies'
-                    ? 'bg-purple-500 text-white'
-                    : 'text-gray-300 hover:text-white'
+                    ? 'bg-emerald-500 text-white dark:bg-emerald-400 dark:text-slate-900'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
                 Case Studies
@@ -156,7 +156,7 @@ export function TestimonialsSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-gray-900/50 border border-gray-800 rounded-xl p-8 backdrop-blur-sm hover:border-cyan-400/50 transition-all duration-300"
+                  className="bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl p-8 backdrop-blur-sm hover:border-emerald-400/50 transition-all duration-300"
                 >
                   <div className="mb-6">
                     <svg className="w-8 h-8 text-cyan-400 mb-4" fill="currentColor" viewBox="0 0 24 24">

@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://diligencelabs.xyz'),
   title: "Diligence Labs - Strategic Blockchain Advisory & Consultation Services",
   description: "Expert strategic advisory for blockchain projects. Technical consultation, tokenomics design, and implementation guidance for Web3 teams building production-ready solutions.",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   keywords: "blockchain advisory, Web3 consultation, tokenomics design, smart contract architecture, crypto strategy, DeFi consulting, blockchain development guidance",
   authors: [{ name: "Diligence Labs" }],
   creator: "Diligence Labs",
@@ -73,18 +74,13 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/favicon.ico',
+        url: '/icon.png',
         sizes: '32x32',
-        type: 'image/x-icon',
-      },
-      {
-        url: '/favicon-16x16.png',
-        sizes: '16x16',
         type: 'image/png',
       },
       {
-        url: '/favicon-32x32.png',
-        sizes: '32x32',
+        url: '/icon.png',
+        sizes: '16x16',
         type: 'image/png',
       },
       {
@@ -93,8 +89,8 @@ export const metadata: Metadata = {
         type: 'image/png',
       }
     ],
-    shortcut: '/favicon.ico',
-    apple: '/apple-icon.png',
+    shortcut: '/icon.png',
+    apple: '/icon.png',
   },
   manifest: '/site.webmanifest',
 };
@@ -112,7 +108,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${GeistMono.variable} ${jetbrainsMono.variable} antialiased font-sans`}
       >
-        <ThemeProvider defaultTheme="dark">
+        <ThemeProvider defaultTheme="system">
           {/* Performance Monitoring */}
           <PerformanceMonitor />
           

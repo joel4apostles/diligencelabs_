@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { motion, useReducedMotion } from 'framer-motion'
+import { ArrowRight, Shield } from 'lucide-react'
 import { GlassNavbar } from '@/components/navigation/glass-navbar'
 
 const handleScheduleSession = () => {
@@ -19,154 +19,163 @@ const handleViewCases = () => {
 }
 
 export function HeroPremium() {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <>
       <GlassNavbar />
       
-      <section className="relative min-h-screen bg-slate-950 dark:bg-slate-950 bg-gray-50 flex items-center justify-center overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(16,185,129,0.1)_1px,transparent_1px),linear-gradient(-45deg,rgba(16,185,129,0.1)_1px,transparent_1px)] bg-[size:100px_100px]" />
+      <section className="relative min-h-[100dvh] bg-gray-50 dark:bg-slate-950 flex items-center justify-center overflow-hidden">
+        {/* Refined Background Architecture */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Minimal Grid Foundation */}
+          <div className="absolute inset-0 opacity-[0.02]">
+            <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:120px_120px]" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:120px_120px]" />
+          </div>
+          
+          {/* Subtle Depth Gradient */}
+          <div className="absolute inset-0 bg-gradient-radial from-transparent via-slate-950/5 to-slate-950/20" />
         </div>
 
-        {/* Floating Elements */}
-        <motion.div
-          animate={{ 
-            rotate: [0, 360],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{ 
-            rotate: { duration: 50, repeat: Infinity, ease: "linear" },
-            scale: { duration: 8, repeat: Infinity, ease: "easeInOut" }
-          }}
-          className="absolute top-1/4 right-1/4 w-64 h-64 border border-emerald-500/10 rounded-lg rotate-12 pointer-events-none"
-        />
-
-        <motion.div
-          animate={{ 
-            rotate: [360, 0],
-            y: [0, -20, 0]
-          }}
-          transition={{ 
-            rotate: { duration: 40, repeat: Infinity, ease: "linear" },
-            y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
-          }}
-          className="absolute bottom-1/4 left-1/4 w-48 h-48 border border-emerald-500/5 rounded-full pointer-events-none"
-        />
-
-        {/* Main Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Main Content Container - Mathematical Precision */}
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 lg:px-8 pt-24 sm:pt-16 lg:pt-8">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.21, 1.11, 0.81, 0.99] }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-center"
           >
-            {/* Badge */}
+            {/* Professional Status Indicator */}
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-2 mb-8"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center gap-3 bg-emerald-950/40 dark:bg-emerald-950/40 bg-emerald-100/80 backdrop-blur-sm border border-emerald-500/25 dark:border-emerald-500/25 border-emerald-600/30 rounded-full px-5 py-2.5 mb-16"
             >
-              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-              <span className="text-emerald-400 text-sm font-mono font-medium tracking-wider">
+              <Shield className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" />
+              <span className="text-emerald-600 dark:text-emerald-400 text-sm font-mono font-semibold tracking-wide uppercase">
                 STRATEGIC BLOCKCHAIN ADVISORY
               </span>
             </motion.div>
 
-            {/* Main Headline */}
-            <h1 
-              className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-slate-900 dark:text-white mb-8 leading-[0.9] tracking-tight px-2"
-              style={{ fontFamily: 'Space Grotesk, system-ui, sans-serif' }}
+            {/* Balanced Typography Hierarchy */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mb-12"
             >
-              WE HELP YOU{' '}
-              <motion.span 
-                className="text-emerald-500"
-                animate={{ 
-                  textShadow: [
-                    "0 0 0px rgba(16,185,129,0)",
-                    "0 0 20px rgba(16,185,129,0.5)",
-                    "0 0 0px rgba(16,185,129,0)"
-                  ]
-                }}
-                transition={{ 
-                  duration: 3, 
-                  repeat: Infinity,
-                  ease: "easeInOut"
+              <h1 
+                className="font-black text-slate-900 dark:text-white leading-[0.85] tracking-[-0.04em] mb-8"
+                style={{ 
+                  fontFamily: 'Inter, system-ui, sans-serif',
+                  fontFeatureSettings: '"kern" 1, "liga" 1, "calt" 1, "ss01" 1',
+                  textRendering: 'optimizeLegibility',
+                  WebkitFontSmoothing: 'antialiased',
+                  MozOsxFontSmoothing: 'grayscale'
                 }}
               >
-                BUILD
-              </motion.span>
-              <br />
-              & SHIP FREELY
-            </h1>
+                {/* Consistent sizing across all lines */}
+                <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+                  <span className="block mb-4">WE HELP YOU</span>
+                  <span className="block mb-4 text-emerald-500 dark:text-emerald-400 relative">
+                    BUILD &
+                    {/* Refined accent treatment */}
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-28 h-1 bg-emerald-500 dark:bg-emerald-400 rounded-full opacity-60" />
+                  </span>
+                  <span className="block">SHIP FREELY</span>
+                </div>
+              </h1>
+            </motion.div>
 
-            {/* Subtitle */}
+            {/* Refined Value Proposition */}
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed mb-12 font-medium px-4"
+              className="text-lg lg:text-xl xl:text-2xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12 font-normal"
+              style={{ 
+                fontFeatureSettings: '"kern" 1, "liga" 1',
+                textRendering: 'optimizeLegibility'
+              }}
             >
-              Strategic consultation for blockchain projects. Expert guidance on tokenomics, 
-              architecture, and technical decisions that define successful Web3 ventures.
+              Strategic consultation for blockchain projects. Expert guidance on{' '}
+              <span className="text-emerald-600 dark:text-emerald-400 font-semibold">tokenomics</span>,{' '}
+              <span className="text-emerald-600 dark:text-emerald-400 font-semibold">architecture</span>, and{' '}
+              <span className="text-emerald-600 dark:text-emerald-400 font-semibold">technical decisions</span>{' '}
+              that define successful Web3 ventures.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* Institutional CTA Design */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-16 sm:mb-20 lg:mb-24"
             >
+              {/* Primary Action - Investment Grade */}
               <motion.button
-                whileHover={{ 
-                  scale: 1.05, 
-                  y: -3,
-                  boxShadow: "0 20px 40px rgba(16,185,129,0.3)"
+                whileHover={shouldReduceMotion ? {} : { 
+                  scale: 1.02, 
+                  y: -1,
+                  boxShadow: "0 16px 32px rgba(16, 185, 129, 0.25)"
                 }}
-                whileTap={{ scale: 0.98 }}
+                whileTap={shouldReduceMotion ? {} : { scale: 0.99 }}
                 onClick={handleScheduleSession}
-                className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-all duration-300 shadow-lg shadow-emerald-500/20 flex items-center justify-center space-x-2 sm:space-x-3"
+                className="group bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-xl shadow-emerald-500/20 flex items-center gap-3 min-h-[56px] w-full sm:w-auto border-2 border-emerald-400"
+                style={{ 
+                  fontFeatureSettings: '"kern" 1',
+                  textRendering: 'optimizeLegibility'
+                }}
               >
-                <span className="text-center">Schedule Strategic Session</span>
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                <span>Schedule Strategic Session</span>
+                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </motion.button>
 
+              {/* Secondary Action - Enhanced */}
               <motion.button
-                whileHover={{ 
-                  scale: 1.05,
-                  y: -3
+                whileHover={shouldReduceMotion ? {} : { 
+                  scale: 1.02,
+                  y: -1
                 }}
-                whileTap={{ scale: 0.98 }}
+                whileTap={shouldReduceMotion ? {} : { scale: 0.99 }}
                 onClick={handleViewCases}
-                className="w-full sm:w-auto border border-gray-300 dark:border-white/20 hover:border-emerald-500/50 text-gray-700 dark:text-white hover:text-emerald-400 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-all duration-300 backdrop-blur-sm"
+                className="group text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white font-semibold text-lg transition-all duration-300 min-h-[56px] px-6 py-4 w-full sm:w-auto border-2 border-slate-300 dark:border-slate-600/60 hover:border-emerald-500 dark:hover:border-emerald-400/60 rounded-xl backdrop-blur-sm bg-white/50 dark:bg-slate-800/30 hover:bg-white/80 dark:hover:bg-slate-700/50"
+                style={{ 
+                  fontFeatureSettings: '"kern" 1',
+                  textRendering: 'optimizeLegibility'
+                }}
               >
-                View Case Studies
+                <span className="flex items-center gap-2">
+                  View Case Studies
+                  <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </span>
               </motion.button>
             </motion.div>
+
 
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Refined Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-2 sm:bottom-3 lg:bottom-4 left-1/2 transform -translate-x-1/2 z-0"
         >
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center space-y-2 text-emerald-400"
+            animate={shouldReduceMotion ? {} : { y: [0, 6, 0] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-3"
           >
-            <span className="text-xs font-mono opacity-60">SCROLL</span>
-            <div className="w-6 h-10 border border-emerald-500/30 rounded-full flex justify-center">
+            <span className="text-xs font-mono tracking-wider text-emerald-600 dark:text-emerald-400 opacity-80">SCROLL</span>
+            <div className="w-6 h-10 border border-emerald-600/50 dark:border-emerald-500/40 rounded-full flex justify-center p-1 bg-white/10 dark:bg-slate-900/20 backdrop-blur-sm">
               <motion.div
-                animate={{ y: [4, 16, 4] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="w-1 h-3 bg-emerald-500 rounded-full mt-2"
+                animate={shouldReduceMotion ? {} : { y: [0, 12, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                className="w-1 h-3 bg-emerald-600 dark:bg-emerald-400 rounded-full"
               />
             </div>
           </motion.div>
