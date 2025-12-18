@@ -47,7 +47,7 @@ export function GlassNavbar() {
       } border-b border-white/5`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -57,7 +57,7 @@ export function GlassNavbar() {
               <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-950 rounded" />
             </div>
             <span 
-              className="text-xl sm:text-2xl font-bold text-white tracking-tight"
+              className="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-tight"
               style={{ fontFamily: 'Space Grotesk, system-ui, sans-serif' }}
             >
               DILIGENCE LABS
@@ -87,7 +87,7 @@ export function GlassNavbar() {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleScheduleTriage}
-              className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-6 py-3 rounded-lg font-bold transition-all duration-300 shadow-lg shadow-emerald-500/20 flex items-center space-x-2"
+              className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-base transition-all duration-300 shadow-lg shadow-emerald-500/20 flex items-center space-x-2"
             >
               <Calendar className="w-4 h-4" />
               <span>Schedule Triage</span>
@@ -99,7 +99,7 @@ export function GlassNavbar() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
+            className="md:hidden p-3 text-gray-400 hover:text-white transition-colors touch-target-44"
           >
             {isOpen ? (
               <X className="w-6 h-6" />

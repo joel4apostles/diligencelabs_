@@ -15,7 +15,7 @@ const PROTOCOL_COMPETENCIES = [
 
 export function TechTicker() {
   return (
-    <section className="relative bg-slate-950 py-12 border-y border-slate-800/30 overflow-hidden">
+    <section className="relative bg-slate-950 py-8 sm:py-12 border-y border-slate-800/30 overflow-hidden">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(16,185,129,0.1)_1px,transparent_1px)] bg-[size:100px_100px]" />
@@ -38,8 +38,8 @@ export function TechTicker() {
         {/* Primary Ticker */}
         <div className="relative overflow-hidden">
           {/* Fade Gradients */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-950 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-slate-950 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-slate-950 to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-slate-950 to-transparent z-10" />
 
           {/* Main Scrolling Content */}
           <motion.div
@@ -49,7 +49,7 @@ export function TechTicker() {
               repeat: Infinity,
               ease: "linear"
             }}
-            className="flex space-x-12 whitespace-nowrap"
+            className="flex space-x-8 sm:space-x-12 whitespace-nowrap"
           >
             {/* First Set */}
             {PROTOCOL_COMPETENCIES.map((competency, index) => (
@@ -59,7 +59,7 @@ export function TechTicker() {
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="flex items-center space-x-12"
+                className="flex items-center space-x-8 sm:space-x-12"
               >
                 <span className="text-slate-500 text-xs font-mono tracking-widest uppercase hover:text-emerald-400 transition-colors duration-500 cursor-default">
                   {competency}
@@ -74,7 +74,7 @@ export function TechTicker() {
             {PROTOCOL_COMPETENCIES.map((competency, index) => (
               <motion.div
                 key={`primary-second-${competency}`}
-                className="flex items-center space-x-12"
+                className="flex items-center space-x-8 sm:space-x-12"
               >
                 <span className="text-slate-500 text-xs font-mono tracking-widest uppercase hover:text-emerald-400 transition-colors duration-500 cursor-default">
                   {competency}
