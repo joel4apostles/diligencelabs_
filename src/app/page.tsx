@@ -2,10 +2,11 @@
 
 import { SmoothScrollProvider } from '@/components/providers/smooth-scroll-provider'
 import { HeroWithNavRefactored } from '@/components/sections/hero-with-nav-refactored'
+import { EcosystemTicker } from '@/components/sections/ecosystem-ticker'
 import { AboutSection } from '@/components/sections/about-section'
-import { ServicesSection } from '@/components/sections/services-section-refactored'
+import { ServicesGrid } from '@/components/sections/services-grid'
 import { ProcessTimeline } from '@/components/sections/process-timeline-refactored'
-import { BookingTerminal } from '@/components/sections/booking-terminal-refactored'
+import { TriageBooking } from '@/components/sections/triage-booking'
 import { FooterSection } from '@/components/sections/footer-section'
 import { ScrollIndicator } from '@/components/ui/scroll-indicator'
 import { EnhancedBackground } from '@/components/ui/enhanced-background'
@@ -24,8 +25,10 @@ export default function HomePage() {
         <div className="relative z-10 text-text-primary">
           <HeroWithNavRefactored />
           
+          <EcosystemTicker />
+          
           <section id="services">
-            <ServicesSection />
+            <ServicesGrid />
           </section>
           
           <section id="about">
@@ -37,7 +40,7 @@ export default function HomePage() {
           </section>
           
           <section id="booking">
-            <BookingTerminal />
+            <TriageBooking />
           </section>
           
           <section id="footer">

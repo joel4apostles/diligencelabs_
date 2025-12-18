@@ -62,6 +62,7 @@ export default {
       },
       fontFamily: {
         mono: ['var(--font-geist-mono)', 'JetBrains Mono', 'monospace'],
+        'jetbrains': ['var(--font-jetbrains-mono)', 'JetBrains Mono', 'monospace'],
         sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
       },
     },

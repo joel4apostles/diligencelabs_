@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import { GrainOverlay } from "@/components/ui/grain-overlay";
 import { PerformanceMonitor } from "@/components/monitoring/PerformanceMonitor";
@@ -12,6 +12,13 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+// Enhanced terminal aesthetic - JetBrains Mono for technical UI elements
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
   display: "swap",
 });
 
@@ -103,7 +110,7 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body
-        className={`${inter.variable} ${GeistMono.variable} antialiased font-sans`}
+        className={`${inter.variable} ${GeistMono.variable} ${jetbrainsMono.variable} antialiased font-sans`}
       >
         <ThemeProvider defaultTheme="dark">
           {/* Performance Monitoring */}
