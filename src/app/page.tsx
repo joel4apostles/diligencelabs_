@@ -3,9 +3,9 @@
 import { SmoothScrollProvider } from '@/components/providers/smooth-scroll-provider'
 import { HeroWithNavRefactored } from '@/components/sections/hero-with-nav-refactored'
 import { AboutSection } from '@/components/sections/about-section'
-import { ServicesSection } from '@/components/sections/services-section'
-import { HowItWorksSection } from '@/components/sections/how-it-works-section'
-import { BookingSection } from '@/components/sections/booking-section'
+import { ServicesSection } from '@/components/sections/services-section-refactored'
+import { ProcessTimeline } from '@/components/sections/process-timeline-refactored'
+import { BookingTerminal } from '@/components/sections/booking-terminal-refactored'
 import { FooterSection } from '@/components/sections/footer-section'
 import { ScrollIndicator } from '@/components/ui/scroll-indicator'
 import { EnhancedBackground } from '@/components/ui/enhanced-background'
@@ -33,11 +33,11 @@ export default function HomePage() {
           </section>
           
           <section id="how-it-works">
-            <HowItWorksSection />
+            <ProcessTimeline />
           </section>
           
           <section id="booking">
-            <BookingSection />
+            <BookingTerminal />
           </section>
           
           <section id="footer">
