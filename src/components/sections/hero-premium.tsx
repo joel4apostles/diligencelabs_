@@ -76,7 +76,7 @@ export function HeroPremium() {
                 duration: shouldReduceMotion ? 0.2 : 0.8, 
                 delay: shouldReduceMotion ? 0 : 0.3 
               }}
-              className="mb-8 sm:mb-10 md:mb-12"
+              className="mb-1 sm:mb-1 md:mb-2"
             >
               <h1 
                 className="font-black text-slate-900 dark:text-white leading-[0.85] sm:leading-[0.85] tracking-[-0.02em] sm:tracking-[-0.04em] mb-6 sm:mb-8"
@@ -181,7 +181,7 @@ export function HeroPremium() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: shouldReduceMotion ? 0.3 : 1.5 }}
-              className="flex justify-center mt-2 sm:mt-3 md:mt-4"
+              className="flex justify-center -mt-2 sm:-mt-3 md:-mt-4"
             >
               <motion.div
                 animate={shouldReduceMotion ? {} : { y: [0, 6, 0] }}
