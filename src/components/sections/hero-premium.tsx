@@ -92,11 +92,11 @@ export function HeroPremium() {
                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
                   <span className="block mb-2 sm:mb-3 md:mb-4">WE HELP YOU</span>
                   <span className="block mb-2 sm:mb-3 md:mb-4 text-emerald-500 dark:text-emerald-400 relative">
-                    BUILD &
+                    BUILD & SHIP
                     {/* Refined accent treatment */}
                     <div className="absolute -bottom-1 sm:-bottom-2 left-1/2 transform -translate-x-1/2 w-20 sm:w-28 h-0.5 sm:h-1 bg-emerald-500 dark:bg-emerald-400 rounded-full opacity-60 transform-gpu" />
                   </span>
-                  <span className="block">SHIP FREELY</span>
+                  <span className="block">FREELY</span>
                 </div>
               </h1>
             </motion.div>
