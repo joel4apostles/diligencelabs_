@@ -4,6 +4,20 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { GlassNavbar } from '@/components/navigation/glass-navbar'
 
+const handleScheduleSession = () => {
+  const element = document.querySelector('#booking')
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
+const handleViewCases = () => {
+  const element = document.querySelector('#about')
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
 export function HeroPremium() {
   return (
     <>
@@ -112,6 +126,7 @@ export function HeroPremium() {
                   boxShadow: "0 20px 40px rgba(16,185,129,0.3)"
                 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={handleScheduleSession}
                 className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 shadow-lg shadow-emerald-500/20 flex items-center space-x-3"
               >
                 <span>Schedule Strategic Session</span>
@@ -124,38 +139,13 @@ export function HeroPremium() {
                   y: -3
                 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={handleViewCases}
                 className="border border-white/20 hover:border-emerald-500/50 text-white hover:text-emerald-400 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 backdrop-blur-sm"
               >
                 View Case Studies
               </motion.button>
             </motion.div>
 
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto"
-            >
-              {[
-                { number: '50+', label: 'Projects Advised' },
-                { number: '$2B+', label: 'TVL Architected' },
-                { number: '100%', label: 'Success Rate' }
-              ].map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  whileHover={{ scale: 1.05 }}
-                  className="text-center"
-                >
-                  <div className="text-3xl sm:text-4xl font-bold text-emerald-500 mb-2 font-mono">
-                    {stat.number}
-                  </div>
-                  <div className="text-gray-400 text-sm uppercase tracking-wider">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
           </motion.div>
         </div>
 

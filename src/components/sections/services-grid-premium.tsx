@@ -18,20 +18,20 @@ const SERVICES = [
     priority: true
   },
   {
-    id: 'architecture',
-    title: 'Technical Architecture',
-    description: 'Expert consultation on smart contract design and security.',
-    icon: Cpu,
-    colSpan: 'md:col-span-2',
-    priority: true
-  },
-  {
     id: 'integration',
     title: 'Integration Strategy',
     description: 'Advisory on bridging traditional systems with blockchain.',
     icon: GitBranch,
     colSpan: 'md:col-span-1',
     priority: false
+  },
+  {
+    id: 'architecture',
+    title: 'Technical Architecture',
+    description: 'Expert consultation on smart contract design and security.',
+    icon: Cpu,
+    colSpan: 'md:col-span-2',
+    priority: true
   },
   {
     id: 'market',
@@ -42,6 +42,13 @@ const SERVICES = [
     priority: false
   }
 ] as const
+
+const handleServiceClick = (serviceId: string) => {
+  const element = document.querySelector('#booking')
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 
 export function ServicesGridPremium() {
   return (
@@ -64,7 +71,7 @@ export function ServicesGridPremium() {
         </motion.div>
 
         {/* Premium Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto auto-rows-fr">
           {SERVICES.map((service, index) => {
             const Icon = service.icon
             return (
@@ -82,9 +89,10 @@ export function ServicesGridPremium() {
                   scale: 1.02,
                   transition: { duration: 0.3 }
                 }}
+                onClick={() => handleServiceClick(service.id)}
                 className={`group relative bg-slate-900/50 border border-white/10 hover:border-emerald-500/50 rounded-2xl p-8 cursor-pointer transition-all duration-500 overflow-hidden ${service.colSpan} ${
                   service.priority ? 'min-h-[280px]' : 'min-h-[240px]'
-                }`}
+                } flex flex-col justify-between`}
               >
                 {/* Priority Indicator */}
                 {service.priority && (

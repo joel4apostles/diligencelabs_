@@ -10,6 +10,20 @@ const NAVIGATION_ITEMS = [
   { label: 'About', href: '#about' }
 ] as const
 
+const handleNavigation = (href: string) => {
+  const element = document.querySelector(href)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
+const handleScheduleTriage = () => {
+  const element = document.querySelector('#booking')
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
 export function GlassNavbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -53,9 +67,9 @@ export function GlassNavbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {NAVIGATION_ITEMS.map((item, index) => (
-              <motion.a
+              <motion.button
                 key={item.label}
-                href={item.href}
+                onClick={() => handleNavigation(item.href)}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -63,7 +77,7 @@ export function GlassNavbar() {
                 className="text-gray-400 hover:text-white transition-colors duration-300 font-medium"
               >
                 {item.label}
-              </motion.a>
+              </motion.button>
             ))}
           </div>
 
@@ -72,6 +86,7 @@ export function GlassNavbar() {
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
+              onClick={handleScheduleTriage}
               className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-6 py-3 rounded-lg font-bold transition-all duration-300 shadow-lg shadow-emerald-500/20 flex items-center space-x-2"
             >
               <Calendar className="w-4 h-4" />
@@ -107,9 +122,12 @@ export function GlassNavbar() {
       >
         <div className="px-4 py-6 space-y-4">
           {NAVIGATION_ITEMS.map((item, index) => (
-            <motion.a
+            <motion.button
               key={item.label}
-              href={item.href}
+              onClick={() => {
+                handleNavigation(item.href)
+                setIsOpen(false)
+              }}
               initial={{ opacity: 0, x: -20 }}
               animate={{ 
                 opacity: isOpen ? 1 : 0, 
@@ -119,11 +137,10 @@ export function GlassNavbar() {
                 duration: 0.3, 
                 delay: isOpen ? index * 0.1 : 0 
               }}
-              onClick={() => setIsOpen(false)}
-              className="block text-gray-400 hover:text-white transition-colors duration-300 font-medium py-2"
+              className="block text-gray-400 hover:text-white transition-colors duration-300 font-medium py-2 text-left"
             >
               {item.label}
-            </motion.a>
+            </motion.button>
           ))}
           
           {/* Mobile CTA */}
@@ -136,6 +153,10 @@ export function GlassNavbar() {
             transition={{ 
               duration: 0.3, 
               delay: isOpen ? NAVIGATION_ITEMS.length * 0.1 : 0 
+            }}
+            onClick={() => {
+              handleScheduleTriage()
+              setIsOpen(false)
             }}
             className="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-6 py-3 rounded-lg font-bold transition-all duration-300 shadow-lg shadow-emerald-500/20 flex items-center justify-center space-x-2 mt-4"
           >
