@@ -52,7 +52,7 @@ const handleServiceClick = (serviceId: string) => {
 
 export function ServicesGridPremium() {
   return (
-    <section className="relative bg-slate-950 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-gray-50 dark:bg-slate-950 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -63,7 +63,7 @@ export function ServicesGridPremium() {
           className="text-center mb-20"
         >
           <h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-black text-white mb-8 leading-tight tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-black text-slate-900 dark:text-white mb-8 leading-tight tracking-tight"
             style={{ fontFamily: 'Space Grotesk, system-ui, sans-serif' }}
           >
             EXPERT <span className="text-emerald-500">SERVICES</span>
@@ -90,7 +90,7 @@ export function ServicesGridPremium() {
                   transition: { duration: 0.3 }
                 }}
                 onClick={() => handleServiceClick(service.id)}
-                className={`group relative bg-slate-900/50 border border-white/10 hover:border-emerald-500/50 rounded-2xl p-6 sm:p-8 cursor-pointer transition-all duration-500 overflow-hidden ${service.colSpan} ${
+                className={`group relative bg-white/80 dark:bg-slate-900/50 border border-gray-200 dark:border-white/10 hover:border-emerald-500/50 rounded-2xl p-6 sm:p-8 cursor-pointer transition-all duration-500 overflow-hidden ${service.colSpan} ${
                   service.priority ? 'min-h-[280px] sm:min-h-[300px]' : 'min-h-[240px] sm:min-h-[260px]'
                 } flex flex-col justify-between`}
               >
@@ -114,14 +114,14 @@ export function ServicesGridPremium() {
                   
                   {/* Title */}
                   <h3 
-                    className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight group-hover:text-emerald-50 transition-colors"
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white mb-4 leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-50 transition-colors"
                     style={{ fontFamily: 'Space Grotesk, system-ui, sans-serif' }}
                   >
                     {service.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm sm:text-base text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors flex-1">
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors flex-1">
                     {service.description}
                   </p>
 

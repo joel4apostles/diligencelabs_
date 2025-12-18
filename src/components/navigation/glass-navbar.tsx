@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { Menu, X, Calendar } from 'lucide-react'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
 const NAVIGATION_ITEMS = [
   { label: 'Services', href: '#services' },
@@ -65,7 +66,7 @@ export function GlassNavbar() {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {NAVIGATION_ITEMS.map((item, index) => (
               <motion.button
                 key={item.label}
@@ -79,6 +80,15 @@ export function GlassNavbar() {
                 {item.label}
               </motion.button>
             ))}
+            
+            {/* Theme Toggle */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <ThemeToggle size="sm" />
+            </motion.div>
           </div>
 
           {/* CTA Button - High Contrast */}
@@ -143,6 +153,23 @@ export function GlassNavbar() {
             </motion.button>
           ))}
           
+          {/* Mobile Theme Toggle */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ 
+              opacity: isOpen ? 1 : 0, 
+              x: isOpen ? 0 : -20 
+            }}
+            transition={{ 
+              duration: 0.3, 
+              delay: isOpen ? NAVIGATION_ITEMS.length * 0.1 : 0 
+            }}
+            className="flex items-center justify-between py-2"
+          >
+            <span className="text-gray-400 font-medium">Theme</span>
+            <ThemeToggle size="sm" />
+          </motion.div>
+          
           {/* Mobile CTA */}
           <motion.button
             initial={{ opacity: 0, y: 20 }}
@@ -152,7 +179,7 @@ export function GlassNavbar() {
             }}
             transition={{ 
               duration: 0.3, 
-              delay: isOpen ? NAVIGATION_ITEMS.length * 0.1 : 0 
+              delay: isOpen ? (NAVIGATION_ITEMS.length + 1) * 0.1 : 0 
             }}
             onClick={() => {
               handleScheduleTriage()

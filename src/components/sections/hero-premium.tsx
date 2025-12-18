@@ -23,7 +23,7 @@ export function HeroPremium() {
     <>
       <GlassNavbar />
       
-      <section className="relative min-h-screen bg-slate-950 flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen bg-slate-950 dark:bg-slate-950 bg-gray-50 flex items-center justify-center overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(16,185,129,0.1)_1px,transparent_1px),linear-gradient(-45deg,rgba(16,185,129,0.1)_1px,transparent_1px)] bg-[size:100px_100px]" />
@@ -76,7 +76,7 @@ export function HeroPremium() {
 
             {/* Main Headline */}
             <h1 
-              className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-8 leading-[0.9] tracking-tight px-2"
+              className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-slate-900 dark:text-white mb-8 leading-[0.9] tracking-tight px-2"
               style={{ fontFamily: 'Space Grotesk, system-ui, sans-serif' }}
             >
               WE HELP YOU{' '}
@@ -106,7 +106,7 @@ export function HeroPremium() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg sm:text-xl lg:text-2xl text-gray-400 max-w-4xl mx-auto leading-relaxed mb-12 font-medium px-4"
+              className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed mb-12 font-medium px-4"
             >
               Strategic consultation for blockchain projects. Expert guidance on tokenomics, 
               architecture, and technical decisions that define successful Web3 ventures.
@@ -140,7 +140,7 @@ export function HeroPremium() {
                 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={handleViewCases}
-                className="w-full sm:w-auto border border-white/20 hover:border-emerald-500/50 text-white hover:text-emerald-400 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-all duration-300 backdrop-blur-sm"
+                className="w-full sm:w-auto border border-gray-300 dark:border-white/20 hover:border-emerald-500/50 text-gray-700 dark:text-white hover:text-emerald-400 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-all duration-300 backdrop-blur-sm"
               >
                 View Case Studies
               </motion.button>
