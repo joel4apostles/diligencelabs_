@@ -586,9 +586,16 @@ export function ProcessTimeline() {
                           <motion.button
                             whileHover={shouldReduceMotion ? {} : { scale: 1.02, y: -2 }}
                             whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-                            className="inline-flex items-center space-x-2 bg-emerald-500/10 hover:bg-emerald-500/20 dark:bg-emerald-400/10 dark:hover:bg-emerald-400/20 border border-emerald-500/30 hover:border-emerald-500/50 dark:border-emerald-400/30 dark:hover:border-emerald-400/50 rounded-xl px-6 py-3 text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 font-semibold transition-all duration-300 backdrop-blur-sm"
+                            onClick={() => {
+                              const bookingSection = document.querySelector('#booking')
+                              if (bookingSection) {
+                                bookingSection.scrollIntoView({ behavior: 'smooth' })
+                              }
+                            }}
+                            className="inline-flex items-center space-x-2 bg-emerald-500/10 hover:bg-emerald-500/20 dark:bg-emerald-400/10 dark:hover:bg-emerald-400/20 border border-emerald-500/30 hover:border-emerald-500/50 dark:border-emerald-400/30 dark:hover:border-emerald-400/50 rounded-xl px-6 py-3 text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 font-semibold transition-all duration-300 backdrop-blur-sm cursor-pointer"
+                            aria-label="Schedule a consultation session"
                           >
-                            <span className="text-sm">Learn More About This Step</span>
+                            <span className="text-sm">Schedule Consultation</span>
                             <ArrowRight className="w-4 h-4" />
                           </motion.button>
                         </motion.div>
